@@ -18,7 +18,6 @@ provider "aws" {
     key    = "student-app/terraform.tfstate"
     region = "us-east-1"
   }
-}
 
 # 1. Obtener la AMI más reciente de Amazon Linux 2023 automáticamente (equivalente al SSM Parameter de CloudFormation)
 data "aws_ssm_parameter" "al2023" {
