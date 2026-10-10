@@ -1,0 +1,10 @@
+{
+  "name": "aws-student-day-app",
+  "version": "1.0.0",
+  "description": "Node.js app - basic IaC deployment with Terraform and Github Actions",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {}
+}
