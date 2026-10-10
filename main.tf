@@ -6,18 +6,18 @@ terraform {
       version = "~> 5.0"
     }
   }
+
+
+backend "s3" {
+    bucket = "aws-sd2026-bucket"
+    key    = "student-app/terraform.tfstate"
+    region = "us-east-1"
+  }
 }
 
 provider "aws" {
   region = var.aws_region
 }
-
-# Backend remoto.
-  backend "s3" {
-    bucket = "aws-sd2026-bucket"
-    key    = "student-app/terraform.tfstate"
-    region = "us-east-1"
-  }
 
 # 1. Obtener la AMI más reciente de Amazon Linux 2023 automáticamente (equivalente al SSM Parameter de CloudFormation)
 data "aws_ssm_parameter" "al2023" {
