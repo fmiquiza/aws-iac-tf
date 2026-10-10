@@ -1,5 +1,6 @@
 terraform {
   required_version = ">= 1.0.0"
+  
   required_providers {
     aws = {
       source  = "hashicorp/aws"
@@ -7,8 +8,7 @@ terraform {
     }
   }
 
-
-backend "s3" {
+  backend "s3" {
     bucket = "aws-sd2026-bucket"
     key    = "student-app/terraform.tfstate"
     region = "us-east-1"
@@ -19,7 +19,7 @@ provider "aws" {
   region = var.aws_region
 }
 
-# 1. Obtener la AMI más reciente de Amazon Linux 2023 automáticamente (equivalente al SSM Parameter de CloudFormation)
+# 1. Obtener la AMI más reciente de Amazon Linux 2023 automáticamente
 data "aws_ssm_parameter" "al2023" {
   name = "/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-default-x86_64"
 }
